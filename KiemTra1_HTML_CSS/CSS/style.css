@@ -5,12 +5,11 @@
 }
 
 #desktop-header {
-    background-color: #222B32;
+    /* background-color: #222B32; */
     /* Width: 1775.77px; */
-    Height: 930px;
+    Height: 927px;
     /* display: flex; */
-    /* background-image: url('./KiemTra1_HTML_CSS/Image/bg_header.png'); */
-    
+    background-image: url('/BTVN/KiemTra1_HTML_CSS/Image/bg_header.png');
 }
 
 #desktop-navbar {
