@@ -8,8 +8,12 @@
     /* background-color: #222B32; */
     /* Width: 1775.77px; */
     Height: 927px;
+    /* width: auto; */
     /* display: flex; */
-    background-image: url('/BTVN/KiemTra1_HTML_CSS/Image/bg_header.png');
+
+    background-image: url('../Image/bg_header.png');
+    background-repeat: no-repeat;
+
 }
 
 #desktop-navbar {
