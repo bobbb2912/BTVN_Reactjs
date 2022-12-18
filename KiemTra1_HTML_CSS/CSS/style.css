@@ -9,7 +9,7 @@
     /* Width: 1775.77px; */
     Height: 930px;
     /* display: flex; */
-    background-image: url('D:/ReactJS/ReacJS/Buoi hoc/KiemTra1_HTML_CSS/Image/bg_header.png');
+    /* background-image: url('./KiemTra1_HTML_CSS/Image/bg_header.png'); */
     
 }
 
@@ -236,8 +236,8 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    
-    margin: 0 700px;
+    justify-content: center;
+    margin: 0 20px;
     margin-top: 100px;
 }
 
@@ -248,9 +248,9 @@
 .client-name {
     margin-top: 70px;
     display: flex;
-    
-    /* max-width: 100px; */
+    /* max-width: 700px; */
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .client-name_item {
