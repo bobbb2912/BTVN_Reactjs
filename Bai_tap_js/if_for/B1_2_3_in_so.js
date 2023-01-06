@@ -1,22 +1,32 @@
+
+
+const inSo = (n) => {
+    for (let i = 1; i <= n; i++) {
+        console.log(i);  
+    }
+}
+
+const soLe = (n) => {
+    for (let i = 1; i <= n; i++) {
+        if(i%2!=0) {
+            console.log(i);  
+        }
+    }
+}
+
+const soChan = (n) => {
+    for (let i = 1; i <= n; i++) {
+        if(i%2==0) {
+            console.log(i);  
+        }
+    }
+}
+
+
 let n = 10;
-// in so tu 1 den n
-console.log("///////////in////////////");
-for (let i = 1; i <= n; i++) {
-    console.log(i);  
-}
-
-// so le tu 1 den n
-console.log("///////////so le////////////");
-
-for (let i = 1; i <= n; i++) {
-    if(i%2!=0) {
-        console.log(i);  
-    }
-}
-// so chan tu 1 den n
-console.log("///////////so chan////////////");
-for (let i = 1; i <= n; i++) {
-    if(i%2==0) {
-        console.log(i);  
-    }
-}
+console.log("inso");
+inSo(n);
+console.log('so chan');
+soChan(n);
+console.log('so le');
+soLe(n);

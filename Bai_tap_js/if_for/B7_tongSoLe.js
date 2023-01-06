@@ -1,10 +1,15 @@
-let n = 5; 
-let sum = 0;
 
-for(let i = 1; i <= n; i++) {
-    if(i%2!=0) {
-        sum+=i;
+const tongSoLe = (n) => {
+    let sum = 0;
+
+    for(let i = 1; i <= n; i++) {
+        if(i%2!=0) {
+            sum+=i;
+        }
     }
+    return sum;
 }
 
-console.log(sum);
+
+let n = 5; 
+console.log(tongSoLe(n));
