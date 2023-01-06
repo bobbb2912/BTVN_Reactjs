@@ -1,4 +1,4 @@
-let n = 1242343;
+let n = 12423423;
 
 let test = n;
 let count = 0;
@@ -21,3 +21,16 @@ if(flag==true) {
 } else {
     console.log("NO");
 }
+
+// let k = 1239321;
+// let str = k + '';
+// let newString = '';
+// console.log(str);
+// for (let i = str.length - 1; i >= 0; i--) {
+//   newString += str[i];
+// }
+// if (newString === str) {
+//   console.log('là số đối xứng');
+// } else {
+//   console.log('không phải số đối xứng');
+// }
