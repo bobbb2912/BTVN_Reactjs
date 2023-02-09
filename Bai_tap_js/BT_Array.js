@@ -84,11 +84,196 @@ const Bai25 = () => {
 }
 
 const Bai26 = () => {
+    let  a = [1,2,3,4,6,7];
+    let k = 5;
+    let b = [];
+    let flag;
+
+    for (let i = 0; i < a.length; i++) {
+
+        if(i == 0) {
+            flag = Math.abs(a[i]-k);
+            b.push(a[i]);
+        } else {
+            if(Math.abs(a[i]-k) == flag) {
+                b.push(a[i]);
+            } else if(Math.abs(a[i]-k) < flag) {
+                flag = Math.abs(a[i]-k);
+                b = [];
+                b.push(a[i]);
+            }
+        }
+        
+    }
+    console.log(b);
+}
+
+const Bai27 = () => {
+    students = [
+        {
+            id: "T3HXX1",
+            firstName: "NgAN",
+            lastName: "Duong Thuy"
+        },
+        {
+            id: "T3HXX2",
+            firstName: "Ha",
+            lastName: "Do Thi Thu"
+        },
+        {
+            id: "T3HXX5",
+            firstName: "Minh",
+            lastName: "Nguyen Nhat"
+        }
+    ];
+
+   
+    for (const element of students) {
+        let ten = element.firstName.trim().toLowerCase();
+        let ho = element.lastName.trim().toLowerCase();
+        ten = ten[0].toUpperCase() + ten.slice(1);
+        for(let j = 0; j < ho.length; j++) {
+            if(ho[j-1] === ' ' ||j == 0) {
+                ho = ho.slice(0, j) 
+                + ho.charAt(j).toUpperCase() 
+                + ho.slice(j+1);
+            }
+        }
+        element.firstName = ten;
+        element.lastName = ho;
+
+        if(element.firstName.length >= 3 && (element.firstName.indexOf('a')!=-1 || element.firstName.indexOf('A')!=-1)) {
+            console.log(element);
+        } 
+    }
+}
+const Bai28 = () => {
+    students = [
+        {
+            id: "T3HXX1",
+            firstName: "NgAN",
+            lastName: "Duong Thuy"
+        },
+        {
+            id: "T3HXX2",
+            firstName: "Ha",
+            lastName: "Do Thi Thu"
+        },
+        {
+            id: "T3HXX5",
+            firstName: "Minh",
+            lastName: "Nguyen Nhat"
+        }
+    ];
+
+   
+    for (const element of students) {
+        let ten = element.firstName.trim().toLowerCase();
+        let ho = element.lastName.trim().toLowerCase();
+        ten = ten[0].toUpperCase() + ten.slice(1);
+        for(let j = 0; j < ho.length; j++) {
+            if(ho[j-1] === ' ' ||j == 0) {
+                ho = ho.slice(0, j) 
+                + ho.charAt(j).toUpperCase() 
+                + ho.slice(j+1);
+            }
+        }
+        element.firstName = ten;
+        element.lastName = ho;
+
+        if(element.lastName.indexOf('Do ')!=-1) {
+            console.log(element);
+        } 
+    }
+}
+const Bai29 = () => {
+    students = [
+        {
+            id: "T3HXX1",
+            firstName: "NgAN",
+            lastName: "Duong Thuy"
+        },
+        {
+            id: "T3HXX2",
+            firstName: "Ha",
+            lastName: "Do Thi Thu"
+        },
+        {
+            id: "T3HXX5",
+            firstName: "Minh",
+            lastName: "Nguyen Nhat"
+        }
+    ];
+
+   
+    for (const element of students) {
+        let ten = element.firstName.trim().toLowerCase();
+        let ho = element.lastName.trim().toLowerCase();
+        ten = ten[0].toUpperCase() + ten.slice(1);
+        for(let j = 0; j < ho.length; j++) {
+            if(ho[j-1] === ' ' ||j == 0) {
+                ho = ho.slice(0, j) 
+                + ho.charAt(j).toUpperCase() 
+                + ho.slice(j+1);
+            }
+        }
+        element.firstName = ten;
+        element.lastName = ho; 
+    }
+    students.sort((a, b) => {
+        let fa = a.firstName.toLowerCase(), 
+            fb = b.firstName.toLowerCase();
+        if(fa < fb) {
+            return -1;
+        }
+        if(fa > fb) {
+            return 1;
+        }
+        return 0;
+    });
+    console.log(students);
+}
+
+const Bai30 = () => {
+    let a = [1,2,3,4,5,6,7,8,9,9,9,8,7,6,5,4,3,2,1];
+    // let a = [1,1,1,1,1,1,1,1,1,1];
+    a.sort();
+    a.reverse();
+    // console.log(a);
+    let max = a[0];
+    let flag = -1;
+    for(const element of a) {
+        if(element<max) {
+            console.log(element);
+            flag = 0;
+            break;
+        }
+    }
+    if(flag!=0) {
+        console.log(flag);
+    }
 
 }
 
+const Bai31 = () => {
+    let a = [1,2,3,4,5,6,7,8,9,9,9,8,7,6,5,4,3,2,1],
+    k = 26;
+    a.sort();
+    let i = 0, j = 1, m = 2;
+    
+}
+
+
+
+
 // Bai21();
 // Bai22();
-Bai23();
+// Bai23();
 // Bai24();
 // Bai25();
+// Bai26();
+// Bai27();
+// Bai28();
+// Bai29();
+// Bai30();
+Bai31();
