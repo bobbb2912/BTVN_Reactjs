@@ -257,14 +257,63 @@ const Bai30 = () => {
 
 const Bai31 = () => {
     let a = [1,2,3,4,5,6,7,8,9,9,9,8,7,6,5,4,3,2,1],
-    k = 26;
+    k = 30;
     a.sort();
-    let i = 0, j = 1, m = 2;
+    let flag = 'NO';
+    for (let i = 0; i < a.length-2; i++) {
+        for (let j = 0; j < a.length-1; j++) {
+            for (let m = 0; m < a.length; m++) {
+                if(a[i] + a[j] + a[m] == k) {
+                    flag = 'YES';
+                    console.log(a[i] + ' + ' + a[j] + ' + ' + a[m] + ' = ' + k);
+                    break;
+                }
+            }
+            if(flag==='YES') break;
+        }
+        if(flag==='YES') break;
+    }
+
+    console.log(flag);
     
 }
 
+const Bai32 = () => {
+    let a = [1,3,6,9,11,20];
+    let k = 10;
+    for (let i = 0; i < a.length; i++) {
+        if(i===a.length-1 && a[i] < k) {
+            a.push(k); break;
+        }else if(i == 0 && a[i] > k) {
+            a.unshift(k); break;
+        }
+         else if(a[i] < k && a[i+1] >= k) {
+            a.splice(i+1, 0, k);
+            break;
+        }
+        
+    }
+    console.log(a);
+}
+
+const Bai33 = () => {
+    let a = [9,8,7,6,4,5,3,2,1]; 
+
+    for (let i = 0; i < a.length-1; i++) {
+        for (let j = i; j < a.length; j++) {
+            if(a[i] > a[j]) {
+                let tmp = a[i];
+                a[i] = a[j];
+                a[j] = tmp;
+            }
+        }
+        console.log(a);
+    }
+    console.log(a);
+}
 
 
+// https://docs.google.com/document/d/1dOKBt0epsxVNdcXwuHWlZrerUVuudlpXFFUrp2FxsXY/edit
 
 // Bai21();
 // Bai22();
@@ -276,4 +325,6 @@ const Bai31 = () => {
 // Bai28();
 // Bai29();
 // Bai30();
-Bai31();
+// Bai31();
+// Bai32();
+Bai33();
