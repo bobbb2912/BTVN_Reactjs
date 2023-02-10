@@ -142,10 +142,14 @@ const Bai27 = () => {
         element.firstName = ten;
         element.lastName = ho;
 
-        if(element.firstName.length >= 3 && (element.firstName.indexOf('a')!=-1 || element.firstName.indexOf('A')!=-1)) {
-            console.log(element);
-        } 
+        // if(element.firstName.length >= 3 && (element.firstName.indexOf('a')!=-1 || element.firstName.indexOf('A')!=-1)) {
+        //     console.log(element);
+        // } 
     }
+    const listStudentFilter = students.filter((item, index) => {
+        return (item.firstName.length >=3) && (item.firstName.indexOf('a')!=-1 || item.firstName.indexOf('A')!=-1);
+    });
+    console.log(listStudentFilter);
 }
 const Bai28 = () => {
     students = [
@@ -181,10 +185,14 @@ const Bai28 = () => {
         element.firstName = ten;
         element.lastName = ho;
 
-        if(element.lastName.indexOf('Do ')!=-1) {
-            console.log(element);
-        } 
+        // if(element.lastName.indexOf('Do ')!=-1) {
+        //     console.log(element);
+        // } 
     }
+    const listStudentFilter = students.filter((item, index) => {
+        return (item.lastName.indexOf('Do ') != -1);
+    });
+    console.log(listStudentFilter);
 }
 const Bai29 = () => {
     students = [
@@ -321,10 +329,10 @@ const Bai33 = () => {
 // Bai24();
 // Bai25();
 // Bai26();
-// Bai27();
+Bai27();
 // Bai28();
 // Bai29();
 // Bai30();
 // Bai31();
 // Bai32();
-Bai33();
+// Bai33();
