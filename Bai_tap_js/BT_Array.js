@@ -228,16 +228,19 @@ const Bai29 = () => {
         element.firstName = ten;
         element.lastName = ho; 
     }
-    students.sort((a, b) => {
-        let fa = a.firstName.toLowerCase(), 
-            fb = b.firstName.toLowerCase();
-        if(fa < fb) {
-            return -1;
-        }
-        if(fa > fb) {
-            return 1;
-        }
-        return 0;
+    // students.sort((a, b) => {
+    //     let fa = a.firstName.toLowerCase(), 
+    //         fb = b.firstName.toLowerCase();
+    //     if(fa < fb) {
+    //         return -1;
+    //     }
+    //     if(fa > fb) {
+    //         return 1;
+    //     }
+    //     return 0;
+    // });
+    students.sort((a,b) => {
+        return a.firstName.localeCompare(b.firstName);
     });
     console.log(students);
 }
@@ -329,9 +332,9 @@ const Bai33 = () => {
 // Bai24();
 // Bai25();
 // Bai26();
-Bai27();
+// Bai27();
 // Bai28();
-// Bai29();
+Bai29();
 // Bai30();
 // Bai31();
 // Bai32();
