@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { fetchCount } from './loginAPI';
+import {reducerCases} from '../../utils/Constants';
 
 const initialState = {
   token: null,
@@ -8,7 +9,7 @@ const initialState = {
 
 
 export const incrementAsync = createAsyncThunk(
-  'counter/fetchCount',
+  'login',
   async (amount) => {
     const response = await fetchCount(amount);
     return response.data;
@@ -21,10 +22,16 @@ export const loginSlice = createSlice({
   reducers: {
     reducer: (state, action) => {
       switch(action.type) {
+        case reducerCases.SET_TOKEN:{
+          return {
+          ...state,
+          token: action.token,
+        };}
         default:
           return state;
       }
     },
+    
   },
   extraReducers: (builder) => {
     

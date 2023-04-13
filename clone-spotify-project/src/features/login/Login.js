@@ -6,7 +6,7 @@ import { Container, Button } from 'react-bootstrap';
 
 const handleClick = () => {
   const clientId = '1e1bccb9ab9948c0bce3dde78c73c10d';
-  const redirectUrl = 'http://localhost:3000/';
+  const redirectUri = 'http://localhost:3000/';
   const apiUrl = 'https://accounts.spotify.com/authorize';
   const scope = [
     'user-read-email', 
@@ -17,7 +17,9 @@ const handleClick = () => {
     'user-read-playback-state',
     'user-modify-playback-state',
     'user-read-currently-playing'];
-    window.location.href = `${apiUrl}?client_id`
+    window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope.join(
+      " "
+    )}&response_type=token&show_dialog=true`;
 }
 export function Login() {
   // const count = useSelector();
