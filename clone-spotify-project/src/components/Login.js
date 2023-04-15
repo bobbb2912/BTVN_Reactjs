@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
-import styles from './Login.module.css';
 import { Container, Button } from 'react-bootstrap';
-
+import {loginStyles} from '../css/Login.module.css'
 const handleClick = () => {
   const clientId = '1e1bccb9ab9948c0bce3dde78c73c10d';
   const redirectUri = 'http://localhost:3000/';
