@@ -24,6 +24,7 @@ const handleClick = () => {
 export function Login() {
   // const count = useSelector();
   const dispatch = useDispatch();
+  const loginReducer = useSelector((state) => state.loginReducer);
 
   return (
     <Container>
