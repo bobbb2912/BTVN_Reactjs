@@ -20,20 +20,23 @@ export default function Playlist() {
             const playlists = items.map(({name, id}) => {
                 return {name, id};
             });
-            // console.log(playlists);
-            dispatch(getPlaylists);
+            console.log(playlists);
+            dispatch(getPlaylists(playlists));
         };
         getPlaylistData();
     
     }, [loginReducer.token]);
   return (
     <div className={playlistStyles.playlists}>
+       
         <ul>
             {loginReducer.playlists.map(({name, id}) => {
                 return (
                     <li key={id}>{name}</li>
                 )
             })}
+            
+           
         </ul> 
     </div>
   )

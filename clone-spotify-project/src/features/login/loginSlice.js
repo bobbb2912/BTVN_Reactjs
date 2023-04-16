@@ -25,7 +25,7 @@ export const loginSlice = createSlice({
       state.token=action.payload;
     },
     getPlaylists:(state, action) => {
-      state.playlist = action.payload;
+      state.playlists = action.payload;
     }
     
   },
