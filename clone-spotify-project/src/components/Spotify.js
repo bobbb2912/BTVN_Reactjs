@@ -8,10 +8,10 @@ import Footer from './Footer';
 
 export default function Spotify() {
   return (
-    <Container className='spotifyStyle'>
+    <Container className={spotifyStyle.spotify}>
       <div className={spotifyStyle.spotify__body }>
         <Sidebar/>
-        <div className='body'>
+        <div className={spotifyStyle.body }>
           <Navbar/>
           <div className='body__contents'>
               <Body/>

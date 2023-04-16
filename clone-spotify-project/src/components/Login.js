@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Container, Button } from 'react-bootstrap';
-import {loginStyles} from '../css/Login.module.css'
+import { Button,  Container} from 'react-bootstrap';
+import loginStyles from '../css/Login.module.css'
+
 const handleClick = () => {
   const clientId = '1e1bccb9ab9948c0bce3dde78c73c10d';
   const redirectUri = 'http://localhost:3000/';
@@ -25,11 +26,12 @@ export function Login() {
   const loginReducer = useSelector((state) => state.loginReducer);
 
   return (
-    <Container>
+    <Container className={loginStyles.login__background}>
         <img src='https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Black.png' 
         alt='spotify logo' />
         <Button onClick={handleClick}>Connect Spotify</Button>
     </Container>
   );
 }
+
 
