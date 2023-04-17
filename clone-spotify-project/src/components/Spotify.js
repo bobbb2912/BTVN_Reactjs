@@ -24,12 +24,12 @@ export default function Spotify() {
         },
     });
       console.log('user info', {data});
-      const userInfo = {
+      const info = {
         userid: data.id,
         userName: data.display_name, 
       };
       // console.log('userinfo', userInfo);
-        dispatch(getUserInfo(userInfo));
+        dispatch(getUserInfo(info));
     };
     userInfo();
   }, [loginReducer.token]);
