@@ -60,6 +60,7 @@ export default function Body() {
                 <p className={bodyStyles.description}>{loginReducer.selectedPlaylist.description}</p>
               </div>
             </div>
+
             <div className={bodyStyles.list}>
               <div className={bodyStyles.header__rows}>
                 <div className={bodyStyles.col}>
@@ -72,9 +73,10 @@ export default function Body() {
                   <span>ALBUM</span>
                 </div>
                 <div className={bodyStyles.col}>
-                  <span><AiFillClockCircle /></span>
+                  <span><AiFillClockCircle/></span>
                 </div>
               </div>
+
               <div className={bodyStyles.tracks}>
                 {
                   loginReducer.selectedPlaylist.track.map(({ 
@@ -87,7 +89,8 @@ export default function Body() {
                     context_uri, 
                     track_number }, index) => {
                       return (
-                        <div className={bodyStyles.row} key={index}>
+                        <div className={bodyStyles.row} 
+                        key={id}>
                           <div className={bodyStyles.col}>
                             <span>{index+1}</span>
                           </div>
