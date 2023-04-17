@@ -5,7 +5,7 @@ import {reducerCases} from '../../utils/Constants';
 const initialState = {
   token: null,
   playlists:[],
- 
+  userInfo: null,
 };
 
 
@@ -26,7 +26,10 @@ export const loginSlice = createSlice({
     },
     getPlaylists:(state, action) => {
       state.playlists = action.payload;
-    }
+    },
+    getUserInfo: (state, action) => {
+      state.userInfo = action.payload;
+    },
     
   },
   extraReducers: (builder) => {
@@ -35,6 +38,6 @@ export const loginSlice = createSlice({
   },
 });
 
-export const { getToken, getPlaylists } = loginSlice.actions;
+export const { getToken, getPlaylists, getUserInfo } = loginSlice.actions;
 
 export default loginSlice.reducer;

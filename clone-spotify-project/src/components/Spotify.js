@@ -5,14 +5,17 @@ import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 import Body from './Body';
 import Footer from './Footer';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
+import { getUserInfo } from '../features/login/loginSlice';
+
+
 
 export default function Spotify() {
   const loginReducer = useSelector((state) => state.loginReducer);
-
+  const dispatch = useDispatch();
   useEffect(() => {
-    const getUserInfo = async () => {
+    const userInfo = async () => {
       const {data} = await axios.get('https://api.spotify.com/v1/me',
       {
         headers : {
@@ -20,10 +23,15 @@ export default function Spotify() {
             "Content-Type": "application/json",
         },
     });
-      console.log('data', {data});
+      console.log('user info', {data});
+      const userInfo = {
+        userid: data.id,
+        userName: data.display_name, 
+      };
+      // console.log('userinfo', userInfo);
+        dispatch(getUserInfo(userInfo));
     };
-    getUserInfo();
-
+    userInfo();
   }, [loginReducer.token]);
   return (
     <Container className={spotifyStyle.spotify}>
