@@ -15,10 +15,11 @@ export default function Navbar() {
         <input type='text' placeholder='Artists, songs, or podcasts'/>
       </div>
       <div className={navbarStyles.avatar}>
-        <a href='#'/>
-        <CgProfile/>
-        <span>{loginReducer.userInfo?.userName}</span>
-        {/* console.log('username',{loginReducer.userInfo?.name}); */}
+        <a href='#'>
+          <CgProfile/>
+          <span>{loginReducer.userInfo?.userName}</span>
+          {/* console.log('username',{loginReducer.userInfo?.name}); */}
+        </a>
       </div>
     </Container>
   )
