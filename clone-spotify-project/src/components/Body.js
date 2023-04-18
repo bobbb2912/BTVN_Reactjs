@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios';
 import { getInitialPlaylist } from '../features/login/loginSlice';
 
-export default function Body() {
+export default function Body({headerBackground}) {
   const loginReducer = useSelector((state) => state.loginReducer);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -45,6 +45,12 @@ export default function Body() {
     };
     initialPlaylist();
   }, [loginReducer.token]);
+
+  const msToMinutesAndSeconds = (ms) => {
+    const minutes = Math.floor(ms/60000);
+    const seconds = ((ms%60000)/1000).toFixed(0);
+    return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+  }
   return (
     <div>
       {
@@ -62,7 +68,7 @@ export default function Body() {
             </div>
 
             <div className={bodyStyles.list}>
-              <div className={bodyStyles.header__rows}>
+              <div className={headerBackground ? bodyStyles.header__rows_1 : bodyStyles.header__rows_2}>
                 <div className={bodyStyles.col}>
                   <span>#</span>
                 </div>
@@ -94,7 +100,7 @@ export default function Body() {
                           <div className={bodyStyles.col}>
                             <span>{index+1}</span>
                           </div>
-                          <div className={bodyStyles.col + bodyStyles.detail}>
+                          <div className={`${bodyStyles.col} ${bodyStyles.detail}`}>
                             <img src={image} alt='track'/>
                             <div className={bodyStyles.info}>
                               <span className={bodyStyles.name}>{name}</span>
@@ -106,7 +112,7 @@ export default function Body() {
                             <span>{album}</span>
                           </div>
                           <div className={bodyStyles.col}>
-                            <span>{duration}</span>
+                            <span>{msToMinutesAndSeconds(duration)}</span>
                           </div>
                         </div>
                       );

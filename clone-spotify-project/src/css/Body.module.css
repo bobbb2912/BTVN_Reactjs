@@ -1,3 +1,6 @@
+
+
+
 .playlist {
     margin: 0 2rem;
     display: flex;
@@ -5,11 +8,11 @@
     gap: 1rem;
 }
 
- .image img{
+.playlist .image img{
     height: 15rem;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 }
- .detail {
+.playlist .detail {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -17,17 +20,17 @@
 
 }
 
-.title {
+.playlist .detail .title {
     color: white;
     font-size: 4rem;
 }
-.type {
+.playlist .detail .type {
 
 }
 
 
 
-.description {
+.playlist .detail .description {
 
 }
 
@@ -35,7 +38,7 @@
 
 }
 
- .header__rows {
+ .header__rows_1 {
     display: grid;
     grid-template-columns: 0.3fr 3fr 2fr 0.1fr;
     color: #dddcdc;
@@ -44,7 +47,18 @@
     top: 15vh;
     padding: 1rem 3rem;
     transition: 0.3s ease-in-out;
-    
+    background-color: #000000dc;
+}
+ .header__rows_2 {
+    display: grid;
+    grid-template-columns: 0.3fr 3fr 2fr 0.1fr;
+    color: #dddcdc;
+    margin: 1rem 0 0 0;
+    position: sticky;
+    top: 15vh;
+    padding: 1rem 3rem;
+    transition: 0.3s ease-in-out;
+    background-color: none;
 }
 
 
@@ -57,34 +71,34 @@
 
 }
 
- .row {
+.tracks .row {
     padding: 0.5rem 1rem;
     display: grid;
     grid-template-columns: 0.3fr 3.1fr 1.9fr 0.1fr;
 
 }
 
- .row:hover {
+.tracks .row:hover {
     background-color: rgba(0, 0, 0, 0.7);
     
 }
 
-.row .col {
+.tracks .row .col {
     display: flex;
     align-items: center;
     color: #dddcdc; 
 }
 
-.col img {
+.tracks .row .col img {
     height: 40px;
     width: 40px;
 }
- .row .detail {
+.tracks .row .detail {
     display: flex;
     gap: 1rem;
 }
 
-.col .info {
+.tracks .row .detail .info {
     display: flex;
     flex-direction: column;
     /* color: #dddcdc;  */

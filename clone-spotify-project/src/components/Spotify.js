@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import spotifyStyle from  '../css/Spotify.module.css'
 import { Container, Button } from 'react-bootstrap';
 import Sidebar from './Sidebar';
@@ -14,6 +14,20 @@ import { getUserInfo } from '../features/login/loginSlice';
 export default function Spotify() {
   const loginReducer = useSelector((state) => state.loginReducer);
   const dispatch = useDispatch();
+  const bodyRef = useRef();
+
+  const [navBackground, setNavBackground] = useState(false);
+  const [headerBackground, setHeaderBackground] = useState(false);
+
+  const bodyScrolled = () => {
+    bodyRef.current.scrollTop >= 30 
+    ? setNavBackground(true)
+    : setNavBackground(false);
+    bodyRef.current.scrollTop >= 268
+    ? setHeaderBackground(true)
+    : setHeaderBackground(false);
+
+  }
   useEffect(() => {
     const userInfo = async () => {
       const {data} = await axios.get('https://api.spotify.com/v1/me',
@@ -37,10 +51,10 @@ export default function Spotify() {
     <Container className={spotifyStyle.spotify}>
       <div className={spotifyStyle.spotify__body }>
         <Sidebar/>
-        <div className={spotifyStyle.body }>
-          <Navbar/>
+        <div className={spotifyStyle.body} ref={bodyRef} onScroll={bodyScrolled}>
+          <Navbar navBackground={navBackground}/>
           <div className='body__contents'>
-              <Body/>
+              <Body headerBackground={headerBackground}/>
           </div>
         </div>
       </div>

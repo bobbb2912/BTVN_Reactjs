@@ -5,11 +5,11 @@ import {CgProfile} from 'react-icons/cg'
 import { useSelector } from 'react-redux'
 import {Container } from 'react-bootstrap'
 
-export default function Navbar() {
+export default function Navbar({navBackground}) {
   const loginReducer = useSelector((state) => state.loginReducer);
   console.log('userinfo_navbar ', loginReducer.userInfo?.userName);
   return (
-    <Container className={navbarStyles.navbar__background}>
+    <Container className={navBackground ? navbarStyles.navbar__background_1 : navbarStyles.navbar__background_2} >
       <div className={navbarStyles.search__bar}>
         <FaSearch/>
         <input type='text' placeholder='Artists, songs, or podcasts'/>

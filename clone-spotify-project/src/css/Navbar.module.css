@@ -1,4 +1,16 @@
-.navbar__background {
+.navbar__background_1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    height: 15vh;
+    position: sticky;
+    top: 0;
+    transition:  0.3s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.navbar__background_2{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,9 +20,8 @@
     top: 0;
     transition:  0.3s ease-in-out;
     background-color: none;
-
-
 }
+
 
 .search__bar {
     background-color: white;
