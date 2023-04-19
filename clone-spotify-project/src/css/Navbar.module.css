@@ -7,7 +7,7 @@
     position: sticky;
     top: 0;
     transition:  0.3s ease-in-out;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 1);
 }
 
 .navbar__background_2{

@@ -47,7 +47,7 @@
     top: 15vh;
     padding: 1rem 3rem;
     transition: 0.3s ease-in-out;
-    background-color: #000000dc;
+    background-color: #000000;
 }
  .header__rows_2 {
     display: grid;
@@ -57,7 +57,7 @@
     position: sticky;
     top: 15vh;
     padding: 1rem 3rem;
-    transition: 0.3s ease-in-out;
+    /* transition: 0.3s ease-in; */
     background-color: none;
 }
 
@@ -79,7 +79,7 @@
 }
 
 .tracks .row:hover {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.3);
     
 }
 
