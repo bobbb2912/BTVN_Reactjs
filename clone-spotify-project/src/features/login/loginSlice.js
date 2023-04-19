@@ -7,7 +7,10 @@ const initialState = {
   playlists:[],
   userInfo: null,
   selectedPlaylistId: "3YIBiCbLeRgroP77Lkxqa6",
-  selectedPlaylist: null
+  selectedPlaylist: null,
+  currentlyPlaying: null,
+  playerState: false,
+
 };
 
 
@@ -34,6 +37,12 @@ export const loginSlice = createSlice({
     },
     getInitialPlaylist: (state, action) => {
       state.selectedPlaylist = action.payload;
+    },
+    getCurrentTrack: (state, action) => {
+      state.currentlyPlaying = action.payload;
+    },
+    getPlayerState: (state, action) => {
+      state.playerState = action.payload;
     }
     
   },
@@ -43,6 +52,12 @@ export const loginSlice = createSlice({
   },
 });
 
-export const { getToken, getPlaylists, getUserInfo, getInitialPlaylist, } = loginSlice.actions;
+export const { 
+  getToken, 
+  getPlaylists, 
+  getUserInfo, 
+  getInitialPlaylist,
+  getCurrentTrack,
+  getPlayerState } = loginSlice.actions;
 
 export default loginSlice.reducer;

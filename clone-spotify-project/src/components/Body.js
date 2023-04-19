@@ -96,7 +96,7 @@ export default function Body({headerBackground}) {
                     track_number }, index) => {
                       return (
                         <div className={bodyStyles.row} 
-                        key={id}>
+                        key={index}>
                           <div className={bodyStyles.col}>
                             <span>{index+1}</span>
                           </div>
