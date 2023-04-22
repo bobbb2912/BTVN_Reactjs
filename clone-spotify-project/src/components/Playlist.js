@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import axios  from 'axios';
-import { getPlaylists } from '../features/login/loginSlice';
+import { getPlaylists, setPlaylistId } from '../features/login/loginSlice';
 import playlistStyles from '../css/Playlists.module.css'
 export default function Playlist() {
     const loginReducer = useSelector((state) => state.loginReducer);
@@ -27,13 +27,17 @@ export default function Playlist() {
         getPlaylistData();
     
     }, [loginReducer.token]);
+
+    const changeCurrentPlaylist = (selectedPlaylistId) => {
+        dispatch(setPlaylistId(selectedPlaylistId));
+    };
   return (
     <div className={playlistStyles.playlists}>
        
         <ul>
             {loginReducer.playlists.map(({name, id}) => {
                 return (
-                    <li key={id}>{name}</li>
+                    <li key={id} onClick={() => changeCurrentPlaylist(id)}>{name}</li>
                 )
             })}
             

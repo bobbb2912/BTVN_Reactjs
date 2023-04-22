@@ -43,7 +43,10 @@ export const loginSlice = createSlice({
     },
     getPlayerState: (state, action) => {
       state.playerState = action.payload;
-    }
+    },
+    setPlaylistId: (state, action) => {
+      state.selectedPlaylistId = action.payload;
+    },
     
   },
   extraReducers: (builder) => {
@@ -58,6 +61,7 @@ export const {
   getUserInfo, 
   getInitialPlaylist,
   getCurrentTrack,
-  getPlayerState } = loginSlice.actions;
+  getPlayerState,
+  setPlaylistId } = loginSlice.actions;
 
 export default loginSlice.reducer;

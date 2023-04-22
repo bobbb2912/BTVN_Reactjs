@@ -17,6 +17,7 @@ export default function Body({headerBackground}) {
             "Content-Type": "application/json",
           },
         });
+        console.log('response bodyplaylist', response);
       const selectedPlaylist = {
         id: response.data.id,
         name: response.data.name,
@@ -44,12 +45,16 @@ export default function Body({headerBackground}) {
       dispatch(getInitialPlaylist(selectedPlaylist))
     };
     initialPlaylist();
-  }, [loginReducer.token]);
+  }, [loginReducer.token, loginReducer.selectedPlaylistId]);
 
   const msToMinutesAndSeconds = (ms) => {
     const minutes = Math.floor(ms/60000);
     const seconds = ((ms%60000)/1000).toFixed(0);
     return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+  };
+
+  const playTrack = async (id, name, artists, image, context_uri, track_number) => {
+    
   }
   return (
     <div>
@@ -96,7 +101,8 @@ export default function Body({headerBackground}) {
                     track_number }, index) => {
                       return (
                         <div className={bodyStyles.row} 
-                        key={index}>
+                        key={index}
+                        onClick={() => playTrack(id, name, artists, image, context_uri, track_number)}>
                           <div className={bodyStyles.col}>
                             <span>{index+1}</span>
                           </div>

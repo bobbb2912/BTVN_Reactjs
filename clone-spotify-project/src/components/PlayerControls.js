@@ -6,6 +6,7 @@ import {FiRepeat} from 'react-icons/fi'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { getCurrentTrack } from '../features/login/loginSlice'
+import { getPlayerState } from '../features/login/loginSlice'
 
 export default function PlayerControls() {
     const loginReducer = useSelector((state) => state.loginReducer);
@@ -30,8 +31,9 @@ export default function PlayerControls() {
                 "Content-Type": "application/json",
             },
         });
-       
+    
         console.log('curentTrack',response);
+
         if(response.data !=="") {
             const {item} = response.data;
             const currentlyPlaying = {
@@ -48,9 +50,20 @@ export default function PlayerControls() {
         }
 
         console.log('player controls', response);
-        // dispatch();
-       
-    }
+    };
+    const changeState = async () => {
+        const state = loginReducer.playerState ? "pause" : "play";
+        const response = await axios.put(
+            `https://api.spotify.com/v1/me/player/${state}`, {}, 
+            {
+            headers : {
+                Authorization: "Bearer " + loginReducer.token,
+                "Content-Type": "application/json",
+            },
+        });
+        dispatch(getPlayerState(!loginReducer.playerState))
+
+    };
   return (
     <div className={playerControlsStyles.playerControls}>
        <div className={playerControlsStyles.shuffle}>
@@ -60,7 +73,7 @@ export default function PlayerControls() {
             <CgPlayTrackPrev onClick={()=>changeTrack("previous")}/>
         </div>
         <div className={playerControlsStyles.state}>
-            {loginReducer.playerState ? <BsFillPauseCircleFill/> : <BsFillPlayCircleFill/>}
+            {loginReducer.playerState ? <BsFillPauseCircleFill onClick={changeState}/> : <BsFillPlayCircleFill onClick={changeState}/>}
         </div>
         <div className={playerControlsStyles.next}>
             <CgPlayTrackNext onClick={()=>changeTrack("next")}/>
