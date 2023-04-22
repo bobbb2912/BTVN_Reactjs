@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import axios  from 'axios';
-import { getPlaylists, setPlaylistId } from '../features/login/loginSlice';
+import { getPlaylists, setPlaylistId, setSelectedSideBar } from '../features/login/loginSlice';
 import playlistStyles from '../css/Playlists.module.css'
 export default function Playlist() {
     const loginReducer = useSelector((state) => state.loginReducer);
@@ -29,6 +29,7 @@ export default function Playlist() {
     }, [loginReducer.token]);
 
     const changeCurrentPlaylist = (selectedPlaylistId) => {
+        dispatch(setSelectedSideBar(null));
         dispatch(setPlaylistId(selectedPlaylistId));
     };
   return (

@@ -4,6 +4,9 @@ import { AiFillClockCircle } from 'react-icons/ai'
 import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios';
 import { getCurrentTrack, getInitialPlaylist, getPlayerState } from '../features/login/loginSlice';
+import Home from './Home';
+import Search from './Search';
+import Library from './Library';
 
 export default function Body({headerBackground}) {
   const loginReducer = useSelector((state) => state.loginReducer);
@@ -45,7 +48,7 @@ export default function Body({headerBackground}) {
       dispatch(getInitialPlaylist(selectedPlaylist))
     };
     initialPlaylist();
-  }, [loginReducer.token, loginReducer.selectedPlaylistId]);
+  }, [loginReducer.token, loginReducer.selectedPlaylistId, loginReducer.selectedSideBar]);
 
   const msToMinutesAndSeconds = (ms) => {
     const minutes = Math.floor(ms/60000);
@@ -82,7 +85,10 @@ export default function Body({headerBackground}) {
   };
   return (
     <div>
-      {
+      {loginReducer.selectedSideBar==="home" ? <Home/> :
+      loginReducer.selectedSideBar==="search" ? <Search/>:
+      loginReducer.selectedSideBar==="library" ? <Library/>:
+       ( 
         loginReducer.selectedPlaylist && (
           <>
             <div className={bodyStyles.playlist}>
@@ -152,7 +158,7 @@ export default function Body({headerBackground}) {
             </div>
           </>
         )
-      }
+      ) }
     </div>
   )
 }

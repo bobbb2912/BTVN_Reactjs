@@ -1,16 +1,15 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { fetchCount } from './loginAPI';
-import {reducerCases} from '../../utils/Constants';
 
 const initialState = {
   token: null,
   playlists:[],
   userInfo: null,
-  selectedPlaylistId: "3YIBiCbLeRgroP77Lkxqa6",
+  selectedPlaylistId: null,
   selectedPlaylist: null,
   currentlyPlaying: null,
   playerState: false,
-
+  selectedSideBar:null,
 };
 
 
@@ -47,6 +46,9 @@ export const loginSlice = createSlice({
     setPlaylistId: (state, action) => {
       state.selectedPlaylistId = action.payload;
     },
+    setSelectedSideBar: (state, action) => {
+      state.selectedSideBar = action.payload;
+    }
     
   },
   extraReducers: (builder) => {
@@ -62,6 +64,7 @@ export const {
   getInitialPlaylist,
   getCurrentTrack,
   getPlayerState,
-  setPlaylistId } = loginSlice.actions;
+  setPlaylistId,
+  setSelectedSideBar, } = loginSlice.actions;
 
 export default loginSlice.reducer;

@@ -4,6 +4,7 @@ import { Login } from './components/Login';
 import { useDispatch, useSelector } from 'react-redux';
 import { getToken } from './features/login/loginSlice';
 import Spotify from './components/Spotify';
+import Home from './components/Home';
 
 function App() {
   const loginReducer = useSelector((state) => state.loginReducer);
