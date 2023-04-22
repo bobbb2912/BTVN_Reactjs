@@ -3,7 +3,7 @@ import bodyStyles from '../css/Body.module.css'
 import { AiFillClockCircle } from 'react-icons/ai'
 import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios';
-import { getInitialPlaylist } from '../features/login/loginSlice';
+import { getCurrentTrack, getInitialPlaylist, getPlayerState } from '../features/login/loginSlice';
 
 export default function Body({headerBackground}) {
   const loginReducer = useSelector((state) => state.loginReducer);
@@ -54,8 +54,32 @@ export default function Body({headerBackground}) {
   };
 
   const playTrack = async (id, name, artists, image, context_uri, track_number) => {
-    
+    const response = await axios.put(
+      `https://api.spotify.com/v1/me/player/play`, 
+      {
+        context_uri,
+        offset: {
+          position: track_number - 1,
+        },
+        position_ms: 0,
+      },
+      {
+      headers: {
+          Authorization: "Bearer " + loginReducer.token,
+          "Content-Type": "application/json",
+      },
+  });
+  if(response.status===204) {
+    const currentPlaying = {
+      id, name, artists, image,
+    };
+    dispatch(getCurrentTrack(currentPlaying));
+    dispatch(getPlayerState(loginReducer.playerState=true))
+  } else {
+    dispatch(getPlayerState(loginReducer.playerState=true))
+
   }
+  };
   return (
     <div>
       {
