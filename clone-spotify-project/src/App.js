@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getToken } from './features/login/loginSlice';
 import Spotify from './components/Spotify';
 import Home from './components/Home';
+import Search from './components/Search';
 
 function App() {
   const loginReducer = useSelector((state) => state.loginReducer);
@@ -22,7 +23,7 @@ function App() {
   return (
     <div >
       {loginReducer.token ? <Spotify/> : <Login/>}
-     
+     {/* <Search/> */}
     </div>
   );
 }

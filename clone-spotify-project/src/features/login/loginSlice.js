@@ -10,6 +10,7 @@ const initialState = {
   currentlyPlaying: null,
   playerState: false,
   selectedSideBar:null,
+  searchAlbums:[],
 };
 
 
@@ -48,6 +49,9 @@ export const loginSlice = createSlice({
     },
     setSelectedSideBar: (state, action) => {
       state.selectedSideBar = action.payload;
+    },
+    getSearchAlbum: (state, action) => {
+      state.searchAlbums = action.payload;
     }
     
   },
@@ -65,6 +69,7 @@ export const {
   getCurrentTrack,
   getPlayerState,
   setPlaylistId,
-  setSelectedSideBar, } = loginSlice.actions;
+  setSelectedSideBar,
+  getSearchAlbum } = loginSlice.actions;
 
 export default loginSlice.reducer;
