@@ -77,9 +77,9 @@ export default function Body({headerBackground}) {
       id, name, artists, image,
     };
     dispatch(getCurrentTrack(currentPlaying));
-    dispatch(getPlayerState(loginReducer.playerState=true))
+    dispatch(getPlayerState(true))
   } else {
-    dispatch(getPlayerState(loginReducer.playerState=true))
+    dispatch(getPlayerState(true))
 
   }
   };
