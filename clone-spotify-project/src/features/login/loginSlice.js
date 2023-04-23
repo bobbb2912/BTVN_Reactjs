@@ -11,6 +11,7 @@ const initialState = {
   playerState: false,
   selectedSideBar:null,
   searchAlbums:[],
+  topTracks: [],
 };
 
 
@@ -52,6 +53,9 @@ export const loginSlice = createSlice({
     },
     getSearchAlbum: (state, action) => {
       state.searchAlbums = action.payload;
+    },
+    getTopTrack: (state, action) => {
+      state.topTracks = action.payload;
     }
     
   },
@@ -70,6 +74,7 @@ export const {
   getPlayerState,
   setPlaylistId,
   setSelectedSideBar,
-  getSearchAlbum } = loginSlice.actions;
+  getSearchAlbum,
+  getTopTrack } = loginSlice.actions;
 
 export default loginSlice.reducer;

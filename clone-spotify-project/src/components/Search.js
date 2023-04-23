@@ -43,24 +43,6 @@ export default function Search({}) {
   }
   return (
     <div>
-      {/* <div>
-        <InputGroup className='mb-3' size='lg'> 
-          <FormControl className={searchStyles.search__bar}
-          placeholder='Search for Artists'
-          type='input'
-          onKeyPress={(event) => {
-            if(event.key=="Enter") {
-              search();
-            }
-          }}
-          onChange={(event)=>setSearchInput(event.target.value)}
-          />
-          <Button onClick={()=>search()} className={search.search__barInput}>
-            Search
-          </Button>
-        </InputGroup>
-      </div> */}
-      {/* <Navbar/> */}
       <div className={searchStyles.search}>
         <Row className='mx-2 row row-cols-4'>
           {loginReducer.searchAlbums.map((album, i) => {

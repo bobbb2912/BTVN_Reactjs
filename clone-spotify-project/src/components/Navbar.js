@@ -2,12 +2,13 @@ import React, {useState, useEffect} from 'react'
 import navbarStyles from '../css/Navbar.module.css'
 import {FaSearch} from 'react-icons/fa'
 import {CgProfile} from 'react-icons/cg'
+import {FiLogOut} from 'react-icons/fi'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Button, Card, Container, FormControl, InputGroup, Row } from 'react-bootstrap'
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import Search from './Search'
-import { getSearchAlbum } from '../features/login/loginSlice'
+import { getSearchAlbum, getToken } from '../features/login/loginSlice'
 
 export default function Navbar({navBackground}) {
   const [searchInput, setSearchInput] = useState("");
@@ -45,6 +46,9 @@ export default function Navbar({navBackground}) {
 
     // display those albums to the user
   }
+  const logout = () => {
+    dispatch(getToken(null));
+  }
   useEffect(() => {
     search();
   }, [loginReducer.token, loginReducer.searchAlbums]);
@@ -66,7 +70,11 @@ export default function Navbar({navBackground}) {
           <span>{loginReducer.userInfo?.userName}</span>
           {/* console.log('username',{loginReducer.userInfo?.name}); */}
         </a>
+        <a href='#'>
+          <FiLogOut onClick={() => logout()}/>
+        </a>
       </div>
+ 
     </Container>
   )
 }
